@@ -11,13 +11,15 @@ export class CategoriasPesquisaComponent implements OnInit {
 
   categorias = [];
 
+  nomeBusca:string;
+
   constructor(
     private service:CategoriasService,
     private msg:MessageService
     ) { }
 
   pesquisar(){
-    this.service.pesquisar()
+    this.service.pesquisar({nome:this.nomeBusca})
     .then((dados)=>{
       this.categorias=dados;
     });

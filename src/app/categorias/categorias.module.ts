@@ -8,6 +8,7 @@ import {TableModule} from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CategoriasPesquisaComponent],
@@ -17,7 +18,8 @@ import { MessageService } from 'primeng/api';
     ButtonModule,
     TableModule,
     TooltipModule,
-    ToastModule
+    ToastModule,
+    FormsModule
   ],
   exports:[
     CategoriasPesquisaComponent

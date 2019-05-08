@@ -1,20 +1,21 @@
 <p-toast></p-toast>
 <div class="container">
+  <form autocomplete="off" (ngSubmit)="pesquisar()">
   <div class="ui-g">
    <div class="ui-g-12">
       <h1>
        Categorias
       </h1>
     </div>
-
     <div class="ui-g-12 ui-fluid">
         <label>Descrição</label>
-        <input pInputText type="text">
+        <input pInputText type="text" name="descricao" [(ngModel)]="nomeBusca">
     </div>
-
     <div class="ui-g-12">
       <button pButton type="submit" label="Pesquisar"></button>
     </div>
+  </div>
+  </form>
 
     <div class="ui-g">
       <div class="ui-g-12">
@@ -40,7 +41,6 @@
 
         </p-table>
      </div>
-    </div>
 
     <div class="ui-g-12">
       <a pButton label="Nova Categoria"></a>
