@@ -1,3 +1,5 @@
+import { Categoria } from './model';
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class CategoriasService {
 
   categoriasURL = 'http://localhost:8090/categorias';
+  urlFiltro;
 
   constructor(private http: HttpClient) { }
 
@@ -17,13 +20,18 @@ export class CategoriasService {
   }
 
   pesquisar(filtro: any): Promise<any> {
-
     if(filtro.nome){
-      this.categoriasURL = 'http://localhost:8090/categorias/filtro?nome='+filtro.nome;
+      this.urlFiltro = 'http://localhost:8090/categorias/filtro?nome='+filtro.nome;
     }else{
-      this.categoriasURL = 'http://localhost:8090/categorias';
+      this.urlFiltro = 'http://localhost:8090/categorias';
     }
 
-    return this.http.get<any>(this.categoriasURL).toPromise();
+    return this.http.get<any>(this.urlFiltro).toPromise();
   }
+
+  adicionar(categoria: Categoria): Promise<any>{
+    return this.http.post(this.categoriasURL, categoria)
+    .toPromise();
+  }
+
 }

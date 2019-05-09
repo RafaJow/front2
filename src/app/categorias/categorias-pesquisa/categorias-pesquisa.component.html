@@ -1,4 +1,6 @@
 <p-toast></p-toast>
+<p-confirmDialog header="Confirmação" icon="pi pi-question-circle" acceptLabel="Sim" rejectLabel="Não"></p-confirmDialog>
+
 <div class="container">
   <form autocomplete="off" (ngSubmit)="pesquisar()">
   <div class="ui-g">
@@ -34,7 +36,7 @@
              <td class="col-acoes">{{cat.nome}}</td>
              <td>
                  <button pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" showDelay="1000" class="ui-button-info"></button>
-                  <button pButton icon="pi pi-trash" pTooltip="Apagar" tooltipPosition="top" showDelay="1000" class="ui-button-danger" (click)="excluir(cat)"></button>
+                  <button pButton icon="pi pi-trash" pTooltip="Apagar" tooltipPosition="top" showDelay="1000" class="ui-button-danger" (click)="confirmarExclusao(cat)"></button>
               </td>
            </tr>
           </ng-template>

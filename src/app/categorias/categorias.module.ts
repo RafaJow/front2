@@ -9,9 +9,11 @@ import {TooltipModule} from 'primeng/tooltip';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { CategoriasCadastroComponent } from './categorias-cadastro/categorias-cadastro.component';
 
 @NgModule({
-  declarations: [CategoriasPesquisaComponent],
+  declarations: [CategoriasPesquisaComponent, CategoriasCadastroComponent],
   imports: [
     CommonModule,
     InputTextModule,
@@ -19,10 +21,12 @@ import { FormsModule } from '@angular/forms';
     TableModule,
     TooltipModule,
     ToastModule,
-    FormsModule
+    FormsModule,
+    ConfirmDialogModule
   ],
   exports:[
-    CategoriasPesquisaComponent
+    CategoriasPesquisaComponent,
+    CategoriasCadastroComponent
   ],
   providers:[
     CategoriasService,
