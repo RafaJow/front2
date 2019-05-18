@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Estado } from '../model';
+import { ActivatedRoute } from '@angular/router';
+import { EstadosService } from '../estados.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-estados-cadastro',
@@ -7,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstadosCadastroComponent implements OnInit {
 
-  constructor() { }
+  estado = new Estado();
+
+  constructor(
+    private service: EstadosService,
+    private messageService: MessageService,
+    private rota: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   }
