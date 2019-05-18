@@ -1,3 +1,6 @@
+
+
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +8,8 @@ import { Injectable } from '@angular/core';
 })
 export class EstadosService {
 
-  constructor() { }
+  estadosURL = 'http://localhost:8090/estados';
+  urlFiltro;
+
+  constructor(private http: HttpClient) { }
 }
