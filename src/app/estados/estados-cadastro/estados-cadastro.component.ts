@@ -3,6 +3,7 @@ import { Estado } from '../model';
 import { ActivatedRoute } from '@angular/router';
 import { EstadosService } from '../estados.service';
 import { MessageService } from 'primeng/api';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-estados-cadastro',
@@ -19,7 +20,47 @@ export class EstadosCadastroComponent implements OnInit {
     private rota: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  inserir(form: FormControl) {
+    this.service.adicionar(this.estado)
+    .then( ()=>{
+      this.messageService.add({severity:'success', summary:'Cadastro', detail:'Estado'+this.estado.nome+' cadastrado'});
+      form.reset();
+    });
   }
 
+  ngOnInit() {
+    const codigoEstado = this.rota.snapshot.params['id'];
+    if(codigoEstado){
+      this.carregarEstado(codigoEstado);
+      console.log(this.estado.id);
+    }
+  }
+
+  carregarEstado(id:number){
+    this.service.buscarPorCodigo(id)
+      .then((data) => {
+        this.estado = data;
+      }
+    );
+  }
+
+  alterar(form: FormControl) {
+    this.service.alterar(this.estado)
+    .then( ()=>{
+      this.messageService.add({severity:'success', summary:'Edição', detail:'Estado '+this.estado.nome+' alterado'});
+      form.reset();
+    });
+  }
+
+  salvar(form: FormControl) {
+    if(this.editando){
+      this.alterar(form);
+    }else{
+      this.inserir(form);
+    }
+  }
+
+  get editando(){
+    return Boolean(this.estado.id);
+  }
 }

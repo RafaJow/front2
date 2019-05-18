@@ -1,3 +1,4 @@
+import { EstadosCadastroComponent } from './estados/estados-cadastro/estados-cadastro.component';
 import { EstadosModule } from './estados/estados.module';
 import { EstadosPesquisaComponent } from './estados/estados-pesquisa/estados-pesquisa.component';
 import { CategoriasPesquisaComponent } from './categorias/categorias-pesquisa/categorias-pesquisa.component';
@@ -18,7 +19,9 @@ const rotas: Routes = [
   {path: 'categorias', component: CategoriasPesquisaComponent},
   {path: 'categorias/novo', component: CategoriasCadastroComponent},
   {path: 'categorias/:id', component: CategoriasCadastroComponent},
-  {path: 'estados', component: EstadosPesquisaComponent}
+  {path: 'estados', component: EstadosPesquisaComponent},
+  {path: 'estados/novo', component: EstadosCadastroComponent},
+  {path: 'estados/:id', component: EstadosCadastroComponent}
 ];
 
 @NgModule({
